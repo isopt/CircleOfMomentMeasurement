@@ -14,7 +14,7 @@ class Admin::UUserDevicesController < Admin::AdminController
 
 
   def edit
-    @user_device = UserDevice.find params[:id]
+    @user_device = UserDevice.find params[:id] 
   end
   
   def create
