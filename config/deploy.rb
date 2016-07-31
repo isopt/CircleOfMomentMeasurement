@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.5.0'
+lock '3.6.0'
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.3.1'
@@ -10,7 +10,7 @@ set :rbenv_roles, :web # default value
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :linked_files, %w{ ./config/database.yml }
+set :linked_files, %w{ ./config/database.yml ./config/secrets.yml }
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :user, "deployer"
