@@ -51,8 +51,12 @@ class User < ActiveRecord::Base
 
 
   def offset_added_prst
-    tz = self.current_event_isopt.tz_offset
-    self.personal_time.getlocal(tz[0..-3]+":"+tz[-2..-1])
+    if self.current_event_isopt.present?
+      tz = self.current_event_isopt.tz_offset
+      self.personal_time.getlocal(tz[0..-3]+":"+tz[-2..-1])
+    else
+      Time.now
+    end
     # (self.personal_time. + self.current_event_isopt.tz_offset_in_hour).gmtime
   end
 
