@@ -52,7 +52,7 @@ class Api::UserDevicesController < ApplicationController
           start_time: nil,
           device_id: @device.human_id,
           minute_in_ms: nil,
-          personal_time:(Time.now) # + 3.hour),
+          personal_time:(Time.now), # + 3.hour),
           tz_offset: "-0700"
         }       
         return
