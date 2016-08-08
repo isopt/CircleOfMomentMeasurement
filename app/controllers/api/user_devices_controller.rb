@@ -19,9 +19,9 @@ class Api::UserDevicesController < ApplicationController
           success: true, 
           status: @user_device.state,
           sim_id: @user_device.device.sim_card_id,
-          start_time: (@user_device.user.init_at),
+          start_time: (@user_device.user.init_at + 3.hour),
           minute_in_ms: @user_device.user.init_time,
-          personal_time: (@user_device.user.personal_time),
+          personal_time: (@user_device.user.personal_time + 3.hour),
           device_id: @device.human_id,
           tz_offset: @user_device.event_isopt.tz_offset
         }
