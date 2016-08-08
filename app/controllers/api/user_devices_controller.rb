@@ -19,9 +19,9 @@ class Api::UserDevicesController < ApplicationController
           success: true, 
           status: @user_device.state,
           sim_id: @user_device.device.sim_card_id,
-          start_time: (@user_device.user.init_at + 3.hour),
+          start_time: (@user_device.user.init_at), // + 3.hour),
           minute_in_ms: @user_device.user.init_time,
-          personal_time: (@user_device.user.personal_time + 3.hour),
+          personal_time: (@user_device.user.personal_time), // + 3.hour),
           device_id: @device.human_id,
           tz_offset: @user_device.event_isopt.tz_offset
         }
@@ -34,7 +34,7 @@ class Api::UserDevicesController < ApplicationController
           start_time: nil,
           device_id: @device.human_id,
           minute_in_ms: nil,
-          personal_time: (Time.now + 3.hour),
+          personal_time: Time.now, //(Time.now + 3.hour),
           tz_offset: "-0700"
         }       
       end
